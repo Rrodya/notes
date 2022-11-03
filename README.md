@@ -37,3 +37,41 @@ export type IAboutOrderDelivery_New = {
   consigneeInn?: string;
 };
 ```
+
+## бага в пуше объетка 
+```
+      get content() {
+        const returnContent: Array<{
+          consigneeName: string;
+          consigneeInn: string;
+        }> = [];
+
+        const inputContent: {
+          consigneeName: string;
+          consigneeInn: string;
+        } = {
+          consigneeName: "",
+          consigneeInn: "",
+        };
+
+        if(seriesOrder && seriesOrder.deliveryPoints.length) {
+          Object.keys(seriesOrder.deliveryPoints).forEach((item) => {
+            if (
+              seriesOrder.deliveryPoints[item] &&
+              seriesOrder.deliveryPoints[item].consigneeName &&
+              seriesOrder.deliveryPoints[item].consigneeInn
+            ) {
+              console.log(seriesOrder.deliveryPoints[item]);
+              inputContent.consigneeName = seriesOrder.deliveryPoints[item].consigneeName;
+              inputContent.consigneeInn = seriesOrder.deliveryPoints[item].consigneeInn;
+              console.log(inputContent);
+              returnContent.push(inputContent);
+              console.log(returnContent);
+             
+            }
+          });
+        }
+
+        return returnContent;
+      },
+```
