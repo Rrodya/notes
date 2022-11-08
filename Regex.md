@@ -82,8 +82,7 @@ alert("We will, we will".replace(/we/ig", "I")); // I will, I will
 - $<name> - вставляет содержимое скобочной группы с именем ```name```
 - $$ - вставляет символ "$" 
 
-```alert ("Love html".replace(/HTML/, "$& and Javascript
-
+```alert ("Love html".replace(/HTML/, "$& and Javascript)); // "Love html and Javascript"```
 
 
 
